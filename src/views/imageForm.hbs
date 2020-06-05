@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card m-2 p-2">
+      <form action="/images/add" method="post" enctype="multipart/form-data">
+        <fieldset>
+          <legend>Information</legend>
+          <div class="form-group">
+            <label for="txtTitulo">Titulo</label>
+            <input type="text" class="form-control" id="txtTitulo" name="txtTitulo" aria-describedby="emailHelp" placeholder="Titulo...">
+          </div>
+          <div class="form-group">
+            <label for="txtDescripcion">Descripcion</label>
+            <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion" aria-describedby="emailHelp"
+              placeholder="Descripcion...">
+          </div>
+          <div class="form-group">
+            <label for="image">Choose file</label>
+            <input type="file" class="form-control-file" id="image" name="image" aria-describedby="fileHelp">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>operations</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each photos}}
+        <tr>
+          <td>{{title}}</td>
+        <td>{{description}}</td>
+        <td>
+          <a href="{{imageurl}}" target="_blank" class="btn btn-primary">View</a>
+          <a href="/images/delete/{{_id}}" class="btn btn-danger">Delete</a>
+        </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
